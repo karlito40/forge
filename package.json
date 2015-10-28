@@ -1,5 +1,5 @@
 {
-  "name": "forge",
+  "name": "forge-struct",
   "version": "0.0.1",
   "description": "Generate a list of folders and/or files from an array",
   "main": "index.js",
@@ -17,7 +17,9 @@
     "forge",
     "structure",
     "project",
-    "generate"
+    "folder",
+    "file",
+    "maker"
   ],
   "author": "Karlito40 <karlito40@gmail.com> (https://github.com/karlito40)",
   "license": "ISC",
@@ -28,7 +30,6 @@
   "devDependencies": {
     "mocha": "^2.3.3"
   },
-
   "bugs": {
     "url": "https://github.com/karlito40/forge/issues"
   },
