@@ -1,4 +1,4 @@
-Generate a list of files or folders.
+Generate a list of files or folders asynchronously.
 
 ## Example from node
 
