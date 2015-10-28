@@ -1,0 +1,36 @@
+{
+  "name": "forge",
+  "version": "0.0.1",
+  "description": "Generate a list of folders and/or files from an array",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "forge": "bin/forge.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karlito40/forge"
+  },
+  "keywords": [
+    "forge",
+    "structure",
+    "project",
+    "generate"
+  ],
+  "author": "Karlito40 <karlito40@gmail.com> (https://github.com/karlito40)",
+  "license": "ISC",
+  "dependencies": {
+    "promise": "^7.0.4",
+    "constant-list": "0.0.6"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+
+  "bugs": {
+    "url": "https://github.com/karlito40/forge/issues"
+  },
+  "homepage": "https://github.com/karlito40/forge#readme"
+}
