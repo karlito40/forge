@@ -3,7 +3,7 @@ Generate a list of files or folders asynchronously.
 ## Example from node
 
 ```
-const Forge = require('forge');
+const Forge = require('forge-struct');
 
 Forge.create([
   'foo/subfoo/file_a.js',
@@ -18,7 +18,7 @@ Forge.create([
 ## Example from command line
 
 ```
-npm install forge -g
+npm install forge-struct -g
 ```
 
 #### Explicit creation
