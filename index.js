@@ -1,10 +1,9 @@
-const fs = require('fs')
-, JS = require('constant-list').JS
-, denodeify = require('promise').denodeify;
+const fs = require('fs');
+const { promisify, isObject } = require('util');
 
 module.exports.create = create;
 
-const writeFile = denodeify(fs.writeFile);
+const writeFile = promisify(fs.writeFile);
 
 const mkdir = function(path){
   return new Promise(function(resolve, reject){
@@ -23,20 +22,21 @@ const existPath = function(path) {
 }
 
 function create(project) {
+  var promises = [];
   project.forEach(function(mixed){
-    if(typeof mixed == JS.OBJECT) {
-      createPath(mixed.path, mixed.content);
+    if(isObject(mixed)) {
+      promises.push(createPath(mixed.path, mixed.content));
     } else {
-      createPath(mixed);
+      promises.push(createPath(mixed));
     }
   });
+
+  return Promise.all(promises);
 }
 
 function createFolder(path) {
   return mkdir(path);
 }
-
-
 
 function createFolders(folders) {
   if(!folders.length) {
@@ -48,35 +48,29 @@ function createFolders(folders) {
 
   folders.forEach(function(name) {
     path += '/' + name;
-    p.then(createFolder.bind(null, path));
+    p = p.then(createFolder.bind(null, path));
   });
-
 
   return p;
 }
 
 function createPath(path, content) {
-  if(path[0] == '/' || path[0] == '.') {
-    console.log(`${path} has been ignored. ['../', './', '/'] are not supported.`)
-    return;
-  }
-
   var folders = path.split('/');
 
-  var file = (folders[folders.length- 1].indexOf('.') != -1)
+  var file = (folders[folders.length - 1].indexOf('.') != -1)
             ? folders.pop()
             : null;
 
   var p = createFolders(folders);
   if(file) {
-    p.then(createFile.bind(null, path, content));
+    p = p.then(createFile.bind(null, path, content));
   }
 
   return p;
 }
 
 function createFile(path, content) {
-  existPath(path)
+  return existPath(path)
     .then(function(exist){
       if(!exist) {
         return writeFile(path, content || '');

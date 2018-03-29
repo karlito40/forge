@@ -1,7 +1,7 @@
 {
   "name": "forge-struct",
-  "version": "0.0.3",
-  "description": "Generate a list of folders and/or files from an array",
+  "version": "0.0.4",
+  "description": "Scaffold a project",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -23,12 +23,10 @@
   ],
   "author": "Karlito40 <karlito40@gmail.com> (https://github.com/karlito40)",
   "license": "ISC",
-  "dependencies": {
-    "promise": "^7.0.4",
-    "constant-list": "0.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "^2.3.3"
+    "mocha": "^2.5.3",
+    "should": "^13.2.1"
   },
   "bugs": {
     "url": "https://github.com/karlito40/forge/issues"
