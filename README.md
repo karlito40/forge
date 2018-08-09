@@ -2,7 +2,7 @@ Asynchronous project generator
 
 ## Example from node
 
-```
+```js
 const Forge = require('forge-struct');
 
 Forge.create([
@@ -22,22 +22,22 @@ Forge.create([
 
 ## Example from command line
 
-```
+```bash
 npm install forge-struct -g
 ```
 
 #### Explicit creation
-```
+```bash
 forge foo/subfoo/file_a.js foo/subfoo/file_b.js foo/subfoo/subsubfoo/file_c.js sample.js another_dir/empty_dir
 ```
 
 #### Implicit file creation
-```
+```bash
 forge -f structure.json
 ```
 
 With structure.json as follow
-```
+```js
 [
   "foo/subfoo/file_a.js",
   "foo/subfoo/file_b.js",
